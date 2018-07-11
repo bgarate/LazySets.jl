@@ -47,8 +47,10 @@ Return the support vector of a polygon in a given direction.
 
 ### Input
 
-- `d` -- direction
-- `P` -- polygon in constraint representation
+- `d`             -- direction
+- `P`             -- polygon in constraint representation
+- `linear_search` -- (optional, default: see below) flag for controlling whether
+                     to perform a linear search or a binary search
 
 ### Output
 
@@ -60,15 +62,29 @@ norm zero, any vertex is returned.
 
 Comparison of directions is performed using polar angles; see the overload of
 `<=` for two-dimensional vectors.
+
+For polygons with `BINARY_SEARCH_THRESHOLD = 10` or more constraints we use a
+binary search by default.
 """
-function σ(d::AbstractVector{<:Real}, P::HPolygon{N})::Vector{N} where {N<:Real}
+function σ(d::AbstractVector{<:Real}, P::HPolygon{N};
+           linear_search=(length(P.constraints) < BINARY_SEARCH_THRESHOLD)::Bool
+          )::Vector{N} where {N<:Real}
     n = length(P.constraints)
     @assert n > 0 "the polygon has no constraints"
-    k = 1
-    while k <= n && P.constraints[k].a <= d
-        k += 1
+
+    if linear_search
+        # linear search
+        k = 1
+        while k <= n && P.constraints[k].a <= d
+            k += 1
+        end
+    else
+        # binary search
+        k = binary_search_constraints(d, P.constraints, n, 1 + div(n, 2))
     end
+
     if k == 1 || k == n+1
+        # corner cases: wrap-around in constraints list
         return element(intersection(Line(P.constraints[1]),
                                     Line(P.constraints[n])))
     else
