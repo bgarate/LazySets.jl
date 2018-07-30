@@ -26,6 +26,10 @@ dim(::Ball2)
 an_element(::Ball2)
 center(::Ball2)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ### Infinity norm ball
 
@@ -37,9 +41,15 @@ dim(::BallInf)
 an_element(::BallInf)
 vertices_list(::BallInf)
 center(::BallInf)
+radius(::BallInf)
 radius_hyperrectangle(::BallInf)
 radius_hyperrectangle(::BallInf, ::Int)
 ```
+Inherited from [`LazySet`](@ref):
+* [`diameter`](@ref diameter(::LazySet))
+
+Inherited from [`AbstractHyperrectangle`](@ref):
+* `norm`
 
 ### Manhattan norm ball
 
@@ -52,6 +62,10 @@ an_element(::Ball1)
 vertices_list(::Ball1)
 center(::Ball1)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ### p-norm ball
 
@@ -63,6 +77,10 @@ dim(::Ballp)
 an_element(::Ballp)
 center(::Ballp)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ## Ellipsoid
 
@@ -74,6 +92,10 @@ dim(::Ellipsoid)
 an_element(::Ellipsoid)
 center(::Ellipsoid)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ## EmptySet
 
@@ -85,6 +107,10 @@ dim(::EmptySet)
 ∈(::AbstractVector{Float64}, ::EmptySet{Float64})
 an_element(::EmptySet)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ## Half-Space
 
@@ -98,6 +124,10 @@ an_element(::HalfSpace)
 LazySets.halfspace_left(::AbstractVector{Float64}, ::AbstractVector{Float64})
 LazySets.halfspace_right(::AbstractVector{Float64}, ::AbstractVector{Float64})
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ## Hyperplane
 
@@ -108,6 +138,10 @@ dim(::Hyperplane)
 ∈(::AbstractVector{Float64}, ::Hyperplane{Float64})
 an_element(::Hyperplane)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ## Hyperrectangles
 
@@ -125,6 +159,12 @@ radius_hyperrectangle(::Hyperrectangle, ::Int)
 high(::Hyperrectangle)
 low(::Hyperrectangle)
 ```
+Inherited from [`LazySet`](@ref):
+* [`diameter`](@ref diameter(::LazySet))
+
+Inherited from [`AbstractHyperrectangle`](@ref):
+* `norm`
+* `radius`
 
 ## Intervals
 
@@ -143,6 +183,12 @@ high(::Interval)
 -(::Interval, ::Interval)
 *(::Interval, ::Interval)
 ```
+Inherited from [`LazySet`](@ref):
+* [`diameter`](@ref diameter(::LazySet))
+
+Inherited from [`AbstractHyperrectangle`](@ref):
+* `norm`
+* `radius`
 
 ## Line
 
@@ -153,6 +199,10 @@ dim(::Line)
 ∈(::AbstractVector{Float64}, ::Line{Float64})
 an_element(::Line)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ## Line segment
 
@@ -164,6 +214,10 @@ dim(::LineSegment)
 LazySets.halfspace_left(::LineSegment)
 LazySets.halfspace_right(::LineSegment)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ## Polygons
 
@@ -180,6 +234,10 @@ tohrep(::HPolygon)
 tovrep(::HPolygon)
 addconstraint!(::HPolygon{Float64}, ::LinearConstraint{Float64})
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ### Optimized constraint representation
 
@@ -194,6 +252,10 @@ tohrep(::HPolygonOpt)
 tovrep(::HPolygonOpt)
 addconstraint!(::HPolygonOpt{Float64}, ::LinearConstraint{Float64})
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ### Vertex representation
 
@@ -207,6 +269,10 @@ vertices_list(::VPolygon)
 tohrep(::VPolygon)
 tovrep(::VPolygon)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ### Sorting directions
 
@@ -229,6 +295,10 @@ addconstraint!(::HPolytope{Float64}, ::LinearConstraint{Float64})
 constraints_list(::HPolytope)
 tosimplehrep(::HPolytope)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ### Vertex representation
 
@@ -238,6 +308,10 @@ dim(::VPolytope)
 σ(::AbstractVector{Float64}, ::VPolytope{Float64})
 vertices_list(::VPolytope)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))
 
 ## Singletons
 
@@ -254,6 +328,12 @@ radius_hyperrectangle(::Singleton, ::Int)
 element(::Singleton)
 element(::Singleton, ::Int)
 ```
+Inherited from [`LazySet`](@ref):
+* [`diameter`](@ref diameter(::LazySet))
+
+Inherited from [`AbstractHyperrectangle`](@ref):
+* `norm`
+* `radius`
 
 ## ZeroSet
 
@@ -271,6 +351,12 @@ element(::ZeroSet)
 element(::ZeroSet, ::Int)
 linear_map(::AbstractMatrix, ::ZeroSet)
 ```
+Inherited from [`LazySet`](@ref):
+* [`diameter`](@ref diameter(::LazySet))
+
+Inherited from [`AbstractHyperrectangle`](@ref):
+* `norm`
+* `radius`
 
 ## Zonotopes
 
@@ -289,3 +375,7 @@ scale(::Real, ::Zonotope)
 ngens(::Zonotope)
 reduce_order(::Zonotope, r)
 ```
+Inherited from [`LazySet`](@ref):
+* [`norm`](@ref norm(::LazySet))
+* [`radius`](@ref radius(::LazySet))
+* [`diameter`](@ref diameter(::LazySet))

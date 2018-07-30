@@ -51,10 +51,10 @@ support_function
 ### Other globally defined set functions
 
 ```@docs
-norm(::LazySet{Float64}, ::Real)
-radius(::LazySet{Float64}, ::Real)
-diameter(::LazySet{Float64}, ::Real)
-an_element(S::LazySet{Float64})
+norm(::LazySet)
+radius(::LazySet)
+diameter(::LazySet)
+an_element(::LazySet{Real})
 ```
 
 ## Point symmetric set
@@ -117,6 +117,13 @@ A hyperrectangle is a special point symmetric polytope with axis-aligned facets.
 
 ```@docs
 AbstractHyperrectangle
+```
+
+This interface defines the following functions:
+
+```@docs
+norm(::AbstractHyperrectangle, ::Real=Inf)
+radius(::AbstractHyperrectangle, ::Real=Inf)
 ```
 
 #### Singleton
