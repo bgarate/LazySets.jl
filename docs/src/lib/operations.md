@@ -21,8 +21,9 @@ end
 
 ```@docs
 CartesianProduct
+Base.:×
 Base.:*(::LazySet{Float64}, ::LazySet{Float64})
-dim(::CartesianProduct{Float64, LazySet{Float64}, LazySet{Float64}})
+dim(::CartesianProduct)
 σ(::AbstractVector{Float64}, ::CartesianProduct{Float64, LazySet{Float64}, LazySet{Float64}})
 ∈(::AbstractVector{Float64}, ::CartesianProduct{Float64, LazySet{Float64}, LazySet{Float64}})
 ```
@@ -30,11 +31,11 @@ dim(::CartesianProduct{Float64, LazySet{Float64}, LazySet{Float64}})
 ### ``n``-ary Cartesian Product
 
 ```@docs
-CartesianProductArray{Float64, LazySet{Float64}}
-array(::CartesianProductArray{Float64, LazySet{Float64}})
-dim(::CartesianProductArray{Float64, LazySet{Float64}})
+CartesianProductArray
+dim(::CartesianProductArray)
 σ(::AbstractVector{Float64}, ::CartesianProductArray{Float64, LazySet{Float64}})
 ∈(::AbstractVector{Float64}, ::CartesianProductArray{Float64, LazySet{Float64}})
+array(::CartesianProductArray)
 ```
 
 ## Convex Hull
@@ -44,7 +45,7 @@ dim(::CartesianProductArray{Float64, LazySet{Float64}})
 ```@docs
 ConvexHull
 CH
-dim(::ConvexHull{Float64, LazySet{Float64}, LazySet{Float64}})
+dim(::ConvexHull)
 σ(::AbstractVector{Float64}, ::ConvexHull{Float64, LazySet{Float64}, LazySet{Float64}})
 ```
 
@@ -53,9 +54,9 @@ dim(::ConvexHull{Float64, LazySet{Float64}, LazySet{Float64}})
 ```@docs
 ConvexHullArray
 CHArray
-array(::ConvexHullArray{Float64, LazySet{Float64}})
-dim(cha::ConvexHullArray)
-σ(d::AbstractVector{Float64}, cha::ConvexHullArray)
+dim(::ConvexHullArray)
+σ(::AbstractVector{Float64}, ::ConvexHullArray)
+array(::ConvexHullArray)
 ```
 
 ### Convex Hull Algorithms
@@ -74,19 +75,19 @@ monotone_chain!
 ```@docs
 Intersection
 ∩(::LazySet, ::LazySet)
-dim(::Intersection{Float64, LazySet{Float64}, LazySet{Float64}})
+dim(::Intersection)
 σ(::AbstractVector{Float64}, ::Intersection{Float64, LazySet{Float64}, LazySet{Float64}})
 ∈(::AbstractVector{Float64}, ::Intersection{Float64, LazySet{Float64}, LazySet{Float64}})
-isempty(::Intersection{Float64, LazySet{Float64}, LazySet{Float64}})
+isempty(::Intersection)
 ```
 
 ### ``n``-ary Intersection
 
 ```@docs
 IntersectionArray
-array(::IntersectionArray{Float64, LazySet{Float64}})
-dim(::IntersectionArray{Float64, LazySet{Float64}})
+dim(::IntersectionArray)
 σ(::AbstractVector{Float64}, ::IntersectionArray{Float64, LazySet{Float64}})
+array(::IntersectionArray)
 ```
 
 ## Minkowski Sum
@@ -95,8 +96,8 @@ dim(::IntersectionArray{Float64, LazySet{Float64}})
 
 ```@docs
 MinkowskiSum
-Base.:+(::LazySet{Float64}, ::LazySet{Float64})
 ⊕
+Base.:+(::LazySet{Float64}, ::LazySet{Float64})
 dim(::MinkowskiSum{Float64, LazySet{Float64}, LazySet{Float64}})
 σ(::AbstractVector{Float64}, ::MinkowskiSum{Float64, LazySet{Float64}, LazySet{Float64}})
 ```
@@ -105,18 +106,18 @@ dim(::MinkowskiSum{Float64, LazySet{Float64}, LazySet{Float64}})
 
 ```@docs
 MinkowskiSumArray
-array(::MinkowskiSumArray{Float64, LazySet{Float64}})
-dim(::MinkowskiSumArray{Float64, LazySet{Float64}})
+dim(::MinkowskiSumArray)
 σ(::AbstractVector{Float64}, ::MinkowskiSumArray{Float64, LazySet{Float64}})
+array(::MinkowskiSumArray)
 ```
 
 ### ``n``-ary Minkowski Sum with cache
 
 ```@docs
 CacheMinkowskiSum
-array(::CacheMinkowskiSum{Float64, LazySet{Float64}})
-dim(::CacheMinkowskiSum{Float64, LazySet{Float64}})
+dim(::CacheMinkowskiSum)
 σ(::AbstractVector{Float64}, ::CacheMinkowskiSum{Float64, LazySet{Float64}})
+array(::CacheMinkowskiSum)
 forget_sets!(::CacheMinkowskiSum)
 ```
 
@@ -126,26 +127,26 @@ forget_sets!(::CacheMinkowskiSum)
 
 ```@docs
 LinearMap
-dim(::LinearMap{Float64, Float64})
-σ(::AbstractVector{Float64}, ::LinearMap{Float64, Float64})
 *(::AbstractMatrix, ::LazySet)
 *(::Float64, ::LazySet)
-∈(x::AbstractVector{Float64}, ::LinearMap{Float64, Float64})
-an_element(lm::LinearMap)
+dim(::LinearMap)
+σ(::AbstractVector{Float64}, ::LinearMap{Float64, Float64})
+∈(::AbstractVector{Float64}, ::LinearMap{Float64, Float64})
+an_element(::LinearMap)
 ```
 
 ### Exponential Map
 
 ```@docs
 ExponentialMap
-dim(::ExponentialMap{Float64, LazySet{Float64}})
+dim(::ExponentialMap)
 σ(::AbstractVector{Float64}, ::ExponentialMap{Float64, LazySet{Float64}})
 ∈(::AbstractVector{Float64}, ::ExponentialMap{Float64, LazySet{Float64}})
 ```
 
 ```@docs
 ExponentialProjectionMap
-dim(::ExponentialProjectionMap{Float64, LazySet{Float64}})
+dim(::ExponentialProjectionMap)
 σ(::AbstractVector{Float64}, ::ExponentialProjectionMap{Float64, LazySet{Float64}})
 ```
 
@@ -163,7 +164,7 @@ ProjectionSparseMatrixExp
 
 ```@docs
 SymmetricIntervalHull
-dim(::SymmetricIntervalHull{Float64, LazySet{Float64}})
+dim(::SymmetricIntervalHull)
 σ(::AbstractVector{Float64}, ::SymmetricIntervalHull{Float64, LazySet{Float64}})
 an_element(::SymmetricIntervalHull{Float64, LazySet{Float64}})
 ```

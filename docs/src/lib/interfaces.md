@@ -51,6 +51,9 @@ support_function
 ### Other globally defined set functions
 
 ```@docs
+norm(::LazySet{Float64}, ::Real)
+radius(::LazySet{Float64}, ::Real)
+diameter(::LazySet{Float64}, ::Real)
 an_element(S::LazySet{Float64})
 ```
 
@@ -79,7 +82,8 @@ AbstractPolytope
 This interface defines the following functions:
 
 ```@docs
-linear_map(M::AbstractMatrix, P::AbstractPolytope{Float64})
+singleton_list(::AbstractPolytope)
+linear_map(::AbstractMatrix, ::AbstractPolytope)
 ```
 
 ### Polygon
@@ -126,5 +130,5 @@ AbstractSingleton
 This interface defines the following functions:
 
 ```@docs
-linear_map(M::AbstractMatrix, S::AbstractSingleton{Float64})
+linear_map(::AbstractMatrix, ::AbstractSingleton)
 ```

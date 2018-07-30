@@ -17,7 +17,7 @@ end
 ## Subset check
 
 ```@docs
-⊆
+⊆(::LazySet{Float64}, ::LazySet{Float64}, ::Bool)
 is_subset(::LazySet{Float64}, ::AbstractHyperrectangle{Float64})
 is_subset(::AbstractPolytope{Float64}, ::AbstractHyperrectangle{Float64})
 is_subset(::AbstractHyperrectangle{Float64}, ::AbstractHyperrectangle{Float64})

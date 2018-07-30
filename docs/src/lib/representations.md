@@ -20,62 +20,59 @@ end
 
 ```@docs
 Ball2
-dim(::Ball2{Float64})
+dim(::Ball2)
 σ(::AbstractVector{Float64}, ::Ball2{Float64})
 ∈(::AbstractVector{Float64}, ::Ball2{Float64})
-an_element(::Ball2{Float64})
-center(::Ball2{Float64})
+an_element(::Ball2)
+center(::Ball2)
 ```
 
 ### Infinity norm ball
 
 ```@docs
 BallInf
-dim(::BallInf{Float64})
+dim(::BallInf)
 σ(::AbstractVector{Float64}, ::BallInf{Float64})
 ∈(::AbstractVector{Float64}, ::BallInf{Float64})
-an_element(::BallInf{Float64})
-norm(::BallInf{Float64}, ::Real)
-radius(::BallInf{Float64}, ::Real)
-diameter(::BallInf{Float64}, ::Real)
-vertices_list(::BallInf{Float64})
-singleton_list(::BallInf{Float64})
-center(::BallInf{Float64})
-radius_hyperrectangle(::BallInf{Float64})
-radius_hyperrectangle(::BallInf{Float64}, ::Int)
+an_element(::BallInf)
+vertices_list(::BallInf)
+center(::BallInf)
+radius_hyperrectangle(::BallInf)
+radius_hyperrectangle(::BallInf, ::Int)
 ```
 
 ### Manhattan norm ball
 
 ```@docs
 Ball1
-dim(::Ball1{Float64})
+dim(::Ball1)
 σ(::AbstractVector{Float64}, ::Ball1{Float64})
 ∈(::AbstractVector{Float64}, ::Ball1{Float64})
-an_element(::Ball1{Float64})
-vertices_list(::Ball1{Float64})
-singleton_list(::Ball1{Float64})
-center(::Ball1{Float64})
+an_element(::Ball1)
+vertices_list(::Ball1)
+center(::Ball1)
 ```
 
 ### p-norm ball
 
 ```@docs
 Ballp
-dim(::Ballp{Float64})
+dim(::Ballp)
 σ(::AbstractVector{Float64}, ::Ballp{Float64})
 ∈(::AbstractVector{Float64}, ::Ballp{Float64})
-an_element(::Ballp{Float64})
-center(::Ballp{Float64})
+an_element(::Ballp)
+center(::Ballp)
 ```
 
 ## Ellipsoid
 
 ```@docs
 Ellipsoid
+dim(::Ellipsoid)
 σ(::AbstractVector{Float64}, ::Ellipsoid{Float64})
-center(::Ellipsoid{Float64})
 ∈(::AbstractVector{Float64}, ::Ellipsoid{Float64})
+an_element(::Ellipsoid)
+center(::Ellipsoid)
 ```
 
 ## EmptySet
@@ -83,10 +80,10 @@ center(::Ellipsoid{Float64})
 ```@docs
 EmptySet
 ∅
-dim(::EmptySet{Float64})
+dim(::EmptySet)
 σ(::AbstractVector{Float64}, ::EmptySet{Float64})
 ∈(::AbstractVector{Float64}, ::EmptySet{Float64})
-an_element(::EmptySet{Float64})
+an_element(::EmptySet)
 ```
 
 ## Half-Space
@@ -94,10 +91,10 @@ an_element(::EmptySet{Float64})
 ```@docs
 HalfSpace
 LinearConstraint
-dim(::HalfSpace{Float64})
+dim(::HalfSpace)
 σ(::AbstractVector{Float64}, ::HalfSpace{Float64})
-an_element(::HalfSpace{Float64})
 ∈(::AbstractVector{Float64}, ::HalfSpace{Float64})
+an_element(::HalfSpace)
 LazySets.halfspace_left(::AbstractVector{Float64}, ::AbstractVector{Float64})
 LazySets.halfspace_right(::AbstractVector{Float64}, ::AbstractVector{Float64})
 ```
@@ -106,10 +103,10 @@ LazySets.halfspace_right(::AbstractVector{Float64}, ::AbstractVector{Float64})
 
 ```@docs
 Hyperplane
-dim(::Hyperplane{Float64})
+dim(::Hyperplane)
 σ(::AbstractVector{Float64}, ::Hyperplane{Float64})
-an_element(::Hyperplane{Float64})
 ∈(::AbstractVector{Float64}, ::Hyperplane{Float64})
+an_element(::Hyperplane)
 ```
 
 ## Hyperrectangles
@@ -117,20 +114,16 @@ an_element(::Hyperplane{Float64})
 ```@docs
 Hyperrectangle
 Hyperrectangle(;kwargs...)
-dim(::Hyperrectangle{Float64})
+dim(::Hyperrectangle)
 σ(::AbstractVector{Float64}, ::Hyperrectangle{Float64})
 ∈(::AbstractVector{Float64}, ::Hyperrectangle{Float64})
-an_element(::Hyperrectangle{Float64})
-norm(::Hyperrectangle{Float64}, ::Real)
-radius(::Hyperrectangle{Float64}, ::Real)
-diameter(::Hyperrectangle{Float64}, ::Real)
-vertices_list(::Hyperrectangle{Float64})
-singleton_list(::Hyperrectangle{Float64})
-center(::Hyperrectangle{Float64})
-radius_hyperrectangle(::Hyperrectangle{Float64})
-radius_hyperrectangle(::Hyperrectangle{Float64}, ::Int)
-high(::Hyperrectangle{Float64})
-low(::Hyperrectangle{Float64})
+an_element(::Hyperrectangle)
+vertices_list(::Hyperrectangle)
+center(::Hyperrectangle)
+radius_hyperrectangle(::Hyperrectangle)
+radius_hyperrectangle(::Hyperrectangle, ::Int)
+high(::Hyperrectangle)
+low(::Hyperrectangle)
 ```
 
 ## Intervals
@@ -139,24 +132,25 @@ low(::Hyperrectangle{Float64})
 Interval
 dim(::Interval)
 σ(::AbstractVector{Float64}, ::Interval{Float64, IntervalArithmetic.AbstractInterval{Float64}})
+∈(::AbstractVector, ::Interval)
+∈(::Float64, ::Interval)
+an_element(::Interval)
+vertices_list(::Interval)
 center(::Interval)
 low(::Interval)
 high(::Interval)
-vertices_list(::Interval)
 +(::Interval, ::Interval)
 -(::Interval, ::Interval)
 *(::Interval, ::Interval)
-∈(::AbstractVector, ::Interval)
-∈(::Float64, ::Interval)
 ```
 
 ## Line
 
 ```@docs
 Line
-dim(::Line{Float64})
+dim(::Line)
 σ(::AbstractVector{Float64}, ::Line{Float64})
-∈(::AbstractVector, ::Line)
+∈(::AbstractVector{Float64}, ::Line{Float64})
 an_element(::Line)
 ```
 
@@ -164,7 +158,7 @@ an_element(::Line)
 
 ```@docs
 LineSegment
-dim(::LineSegment{Float64})
+dim(::LineSegment)
 σ(::AbstractVector{Float64}, ::LineSegment{Float64})
 ∈(::AbstractVector{Float64}, ::LineSegment{Float64})
 LazySets.halfspace_left(::LineSegment)
@@ -177,14 +171,13 @@ LazySets.halfspace_right(::LineSegment)
 
 ```@docs
 HPolygon
-dim(::HPolygon{Float64})
+dim(::HPolygon)
 σ(::AbstractVector{Float64}, ::HPolygon{Float64})
 ∈(::AbstractVector{Float64}, ::HPolygon{Float64})
-an_element(::HPolygon{Float64})
-vertices_list(::HPolygon{Float64})
-singleton_list(::HPolygon{Float64})
-tohrep(::HPolygon{Float64})
-tovrep(::HPolygon{Float64})
+an_element(::HPolygon)
+vertices_list(::HPolygon)
+tohrep(::HPolygon)
+tovrep(::HPolygon)
 addconstraint!(::HPolygon{Float64}, ::LinearConstraint{Float64})
 ```
 
@@ -192,14 +185,13 @@ addconstraint!(::HPolygon{Float64}, ::LinearConstraint{Float64})
 
 ```@docs
 HPolygonOpt
-dim(::HPolygonOpt{Float64})
+dim(::HPolygonOpt)
 σ(::AbstractVector{Float64}, ::HPolygonOpt{Float64})
 ∈(::AbstractVector{Float64}, ::HPolygonOpt{Float64})
-an_element(::HPolygonOpt{Float64})
-vertices_list(::HPolygonOpt{Float64})
-singleton_list(::HPolygonOpt{Float64})
-tohrep(::HPolygonOpt{Float64})
-tovrep(::HPolygonOpt{Float64})
+an_element(::HPolygonOpt)
+vertices_list(::HPolygonOpt)
+tohrep(::HPolygonOpt)
+tovrep(::HPolygonOpt)
 addconstraint!(::HPolygonOpt{Float64}, ::LinearConstraint{Float64})
 ```
 
@@ -207,14 +199,13 @@ addconstraint!(::HPolygonOpt{Float64}, ::LinearConstraint{Float64})
 
 ```@docs
 VPolygon
-dim(::VPolygon{Float64})
+dim(::VPolygon)
 σ(::AbstractVector{Float64}, ::VPolygon{Float64})
 ∈(::AbstractVector{Float64}, ::VPolygon{Float64})
-an_element(::VPolygon{Float64})
-vertices_list(::VPolygon{Float64})
-singleton_list(::VPolygon{Float64})
-tohrep(::VPolygon{Float64})
-tovrep(::VPolygon{Float64})
+an_element(::VPolygon)
+vertices_list(::VPolygon)
+tohrep(::VPolygon)
+tovrep(::VPolygon)
 ```
 
 ### Sorting directions
@@ -222,74 +213,79 @@ tovrep(::VPolygon{Float64})
 ```@docs
 LazySets.jump2pi
 <=(::AbstractVector{Float64}, ::AbstractVector{Float64})
-LazySets.quadrant(w::AbstractVector{Float64})
+LazySets.quadrant(::AbstractVector{Float64})
 ```
 
 ## Polytopes
 
+### Constraint representation
+
 ```@docs
 HPolytope
-dim(P::HPolytope)
-addconstraint!(P::HPolytope{Float64}, constraint::LinearConstraint{Float64})
-constraints_list(P::HPolytope{Float64})
-σ(d::AbstractVector{Float64}, P::HPolytope)
+dim(::HPolytope)
+σ(::AbstractVector{Float64}, ::HPolytope{Float64})
 ∈(::AbstractVector{Float64}, ::HPolytope{Float64})
+addconstraint!(::HPolytope{Float64}, ::LinearConstraint{Float64})
+constraints_list(::HPolytope)
+tosimplehrep(::HPolytope)
+```
+
+### Vertex representation
+
+```@docs
+VPolytope
+dim(::VPolytope)
+σ(::AbstractVector{Float64}, ::VPolytope{Float64})
+vertices_list(::VPolytope)
 ```
 
 ## Singletons
 
 ```@docs
 Singleton
-dim(::Singleton{Float64})
+dim(::Singleton)
 σ(::AbstractVector{Float64}, ::Singleton{Float64})
 ∈(::AbstractVector{Float64}, ::Singleton{Float64})
-norm(::Singleton{Float64}, ::Real)
-diameter(::Singleton{Float64}, ::Real)
-vertices_list(::Singleton{Float64})
-singleton_list(::Singleton{Float64})
-center(::Singleton{Float64})
-radius_hyperrectangle(::Singleton{Float64})
-radius_hyperrectangle(::Singleton{Float64}, ::Int)
-an_element(::Singleton{Float64})
-element(::Singleton{Float64})
-element(::Singleton{Float64}, ::Int)
+an_element(::Singleton)
+vertices_list(::Singleton)
+center(::Singleton)
+radius_hyperrectangle(::Singleton)
+radius_hyperrectangle(::Singleton, ::Int)
+element(::Singleton)
+element(::Singleton, ::Int)
 ```
 
 ## ZeroSet
 
 ```@docs
 ZeroSet
-dim(::ZeroSet{Float64})
+dim(::ZeroSet)
 σ(::AbstractVector{Float64}, ::ZeroSet{Float64})
 ∈(::AbstractVector{Float64}, ::ZeroSet{Float64})
-norm(::ZeroSet{Float64}, ::Real)
-diameter(::ZeroSet{Float64}, ::Real)
-vertices_list(::ZeroSet{Float64})
-singleton_list(::ZeroSet{Float64})
-center(::ZeroSet{Float64})
-radius_hyperrectangle(::ZeroSet{Float64})
-radius_hyperrectangle(::ZeroSet{Float64}, ::Int)
-an_element(::ZeroSet{Float64})
-element(::ZeroSet{Float64})
-element(::ZeroSet{Float64}, ::Int)
-linear_map(M::AbstractMatrix, Z::ZeroSet{Float64})
+an_element(::ZeroSet)
+vertices_list(::ZeroSet)
+center(::ZeroSet)
+radius_hyperrectangle(::ZeroSet)
+radius_hyperrectangle(::ZeroSet, ::Int)
+element(::ZeroSet)
+element(::ZeroSet, ::Int)
+linear_map(::AbstractMatrix, ::ZeroSet)
 ```
 
 ## Zonotopes
 
 ```@docs
 Zonotope
-dim(::Zonotope{Float64})
+dim(::Zonotope)
 σ(::AbstractVector{Float64}, ::Zonotope{Float64})
 ∈(::AbstractVector{Float64}, ::Zonotope{Float64})
-an_element(::Zonotope{Float64})
-center(::Zonotope{Float64})
-vertices_list(::Zonotope{Float64})
-singleton_list(::Zonotope{Float64})
-order(::Zonotope{Float64})
+an_element(::Zonotope)
+vertices_list(::Zonotope)
+center(::Zonotope)
+order(::Zonotope)
 minkowski_sum(::Zonotope, ::Zonotope)
 linear_map(::AbstractMatrix, ::Zonotope)
 scale(::Real, ::Zonotope)
 ngens(::Zonotope)
-reduce_order(::Zonotope{Float64}, r)
+reduce_order(::Zonotope, r)
 ```
