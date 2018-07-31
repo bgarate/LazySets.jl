@@ -227,6 +227,10 @@ an_element(::SymmetricIntervalHull{Float64, LazySet{Float64}})
 Inherited from [`LazySet`](@ref):
 * [`diameter`](@ref diameter(::LazySet))
 
+Inherited from [`AbstractPolytope`](@ref):
+* [`singleton_list`](@ref singleton_list(::AbstractPolytope))
+* [`linear_map`](@ref linear_map(::AbstractMatrix, ::AbstractPolytope))
+
 Inherited from [`AbstractHyperrectangle`](@ref):
 * `norm`
 * `radius`
